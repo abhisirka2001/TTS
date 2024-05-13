@@ -611,6 +611,10 @@ class VoiceBpeTokenizer:
             "ja": 71,
             "hu": 224,
             "ko": 95,
+            "ta": 350,
+            "te": 250,
+            "kn":250,
+            "gu":250
         }
 
     @cached_property
@@ -638,6 +642,8 @@ class VoiceBpeTokenizer:
             txt = japanese_cleaners(txt, self.katsu)
         elif lang == "hi":
             # @manmay will implement this
+            txt = basic_cleaners(txt)
+        elif lang in {"ta","te","gu","kn"}:
             txt = basic_cleaners(txt)
         else:
             raise NotImplementedError(f"Language '{lang}' is not supported.")
