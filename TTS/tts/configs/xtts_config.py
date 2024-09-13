@@ -89,10 +89,14 @@ class XttsConfig(BaseTTSConfig):
             "ko",
             "ja",
             "hi",
-            "ta",
-            "te",
-            "kn",
-            "gu"
+            "bn", 
+            "gu", 
+            "kn", 
+            "ml", 
+            "mr", 
+            "pa", 
+            "ta", 
+            "te"
         ]
     )
 

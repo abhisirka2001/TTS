@@ -595,7 +595,7 @@ class VoiceBpeTokenizer:
         if vocab_file is not None:
             self.tokenizer = Tokenizer.from_file(vocab_file)
         self.char_limits = {
-            "en": 250,
+            "en": 600,
             "de": 253,
             "fr": 273,
             "es": 239,
@@ -611,10 +611,15 @@ class VoiceBpeTokenizer:
             "ja": 71,
             "hu": 224,
             "ko": 95,
-            "ta": 350,
-            "te": 250,
-            "kn":250,
-            "gu":250
+            "hi": 600,
+            "bn": 600, 
+            "gu": 600, 
+            "kn": 600, 
+            "ml": 600, 
+            "mr": 600, 
+            "pa": 600, 
+            "ta": 600, 
+            "te":600
         }
 
     @cached_property
@@ -640,10 +645,8 @@ class VoiceBpeTokenizer:
                 txt = korean_transliterate(txt)
         elif lang == "ja":
             txt = japanese_cleaners(txt, self.katsu)
-        elif lang == "hi":
+        elif lang in ["hi", "bn", "gu", "kn", "ml", "mr", "pa", "ta", "te"]:
             # @manmay will implement this
-            txt = basic_cleaners(txt)
-        elif lang in {"ta","te","gu","kn"}:
             txt = basic_cleaners(txt)
         else:
             raise NotImplementedError(f"Language '{lang}' is not supported.")
